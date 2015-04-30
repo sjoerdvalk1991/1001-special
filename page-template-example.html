@@ -38,23 +38,22 @@ description: This is my site. Welcome.
               <h5 class="panel__subheader">Fusce ullamcorper mauris in eros dignissim molestie posuere felis blandit. Aliquam erat volutpat. Mauris ultricies posuere vehicula. Sed sit amet posuere erat. </h5>
             </div>
  
-          <div class="row">
-              <div class="large-6 small-6 columns">
-                <div class="panel">
-                  <h5>Header</h5>
-                <h6 class="subheader">Praesent placerat dui tincidunt elit suscipit sed.</h6>
-                <a href="http://foundation.zurb.com/templates.html" class="small button">Get more templates</a>
+         <div class="row">
+          {% for post in site.posts %}
+            <div class="large-6 columns">
+              <article class="post">    
+                
+                <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+                <div class="entry">
+                  {{ post.content | truncatewords:20}}
                 </div>
-              </div>
- 
-              <div class="large-6 small-6 columns">
-                <div class="panel">
-                  <h5>Header</h5>
-                <h6 class="subheader">Praesent placerat dui tincidunt elit suscipit sed.</h6>
-                <a href="#" class="small button">BUTTON TIME!</a>
-                </div>
-              </div>
-          </div>
+                
+                <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+              </article>
+            </div>  
+          {% endfor %}
+        </div>
  
           </div>
  
